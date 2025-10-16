@@ -1,5 +1,6 @@
 use chrono::{NaiveDate, Utc};
-#[derive(Debug)]
+use serde::{Deserialize, Serialize};
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Tarefa {
     pub titulo: String,
     pub descricao: String,
@@ -8,13 +9,13 @@ pub struct Tarefa {
     pub prioridade: Prioridade,
     pub status: Status
 }
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum Prioridade {
     Alta,
     Media,
     Baixa
 }
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum Status {
     Pendente,
     Concluida { date: NaiveDate }

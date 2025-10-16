@@ -12,7 +12,8 @@ fn main(){
         println!("1. Adicionar Tarefa");
         println!("2. Listar Tarefa");
         println!("3. Marcar Tarefa Finalizada");
-        println!("4. Sair");
+        println!("4. Importar arquivo JSON");
+        println!("5. Sair");
 
         let opcao = io_utils::read_string("Escolha uma opcao: ");
 
@@ -21,7 +22,8 @@ fn main(){
             "1" => manager.adicionar_tarefa(),
             "2" => manager.listar_tarefas(),
             "3" => manager.finalizar_tarefa(),
-            "4" => {
+            "4" => manager.ler_tarefas(),
+            "5" => {
                 println!("Saindo");
                 break;
             }

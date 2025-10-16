@@ -1,6 +1,8 @@
 use crate::models::{ Tarefa, Prioridade};
 use crate::io_utils::read_string;
 use chrono::NaiveDate;
+use std::fs;
+
 pub struct TaskManager {
     pub tarefas: Vec<Tarefa>,
 }
@@ -11,8 +13,20 @@ impl TaskManager {
         }
     }
     // serde_json, std::fs, std::path
-    pub fn _ler_tarefas() -> Vec<Tarefa> {
-        todo!()
+    pub fn ler_tarefas(&mut self){
+        let file_path_to_str = read_string("Path do arquivo: ");
+        match fs::read_to_string(&file_path_to_str){
+            Ok(conteudo_json) => {
+                match serde_json::from_str(&conteudo_json) {
+                    Ok(mut loaded_tasks) => {
+                        self.tarefas.append(&mut loaded_tasks);
+                        println!("Leitura realizada com sucesso ✅")
+                    }
+                    Err(_) => println!("JSON invalido")
+                }
+            },
+            Err(_) => todo!()
+        }
     }
     pub fn adicionar_tarefa (&mut self){
         let titulo = read_string("Titulo: ");
@@ -64,5 +78,4 @@ impl TaskManager {
         }
     }
 }
-
 
