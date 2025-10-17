@@ -61,7 +61,7 @@ impl TaskManager {
             println!("Nenhuma tarefa encontrada.");
         } else {
             for (i, tarefa) in self.tarefas.iter().enumerate() {
-                println!("{}. {}", i + 1, tarefa.exibir());
+                println!("{}. {}", i + 1, tarefa);
             }
         }
     }
