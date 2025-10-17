@@ -3,6 +3,7 @@ use crate::io_utils::read_string;
 use chrono::NaiveDate;
 use std::fs;
 
+
 pub struct TaskManager {
     pub tarefas: Vec<Tarefa>,
 }
@@ -25,7 +26,7 @@ impl TaskManager {
                     Err(_) => println!("JSON invalido")
                 }
             },
-            Err(_) => todo!()
+            Err(_) => println!("Arquivo nao encontrado!"),
         }
     }
     pub fn adicionar_tarefa (&mut self){
@@ -53,7 +54,7 @@ impl TaskManager {
         println!("Tarefa {} criada.", tarefa.titulo);
     
         self.tarefas.push(tarefa);
-        println!("Tarefa adicionada na Lista");
+        println!("Tarefa adicionada na Lista ✅");
     }
     pub fn listar_tarefas(&self) {
         if self.tarefas.is_empty() {
@@ -75,6 +76,16 @@ impl TaskManager {
             println!("Tarefa {} completada!", tarefa.titulo);
         } else {
             println!("Tarefa não encontrada.");
+        }
+    }
+    pub fn salvar_tarefas (&self) {
+        let json = serde_json::to_string_pretty(&self.tarefas);
+        match json {
+            Ok(result) => {
+                let load = read_string("Selecione o path: ");
+                fs::write(load, result).expect("Erro no write");
+            }
+            Err(_) => println!("Erro ao serializar"),
         }
     }
 }

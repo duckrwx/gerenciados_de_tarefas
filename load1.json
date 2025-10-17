@@ -1,0 +1,30 @@
+[
+  {
+    "titulo": "Finalizar projeto Polkadot",
+    "descricao": "Implementar o simulador de mercado de ações com interoperabilidade.",
+    "categoria": "Blockchain",
+    "data": "2025-11-20",
+    "prioridade": "Alta",
+    "status": "Pendente"
+  },
+  {
+    "titulo": "Refatorar o Task Manager",
+    "descricao": "Melhorar o módulo de leitura de input do usuário e a escrita em arquivo.",
+    "categoria": "Programação Rust",
+    "data": "2025-10-15",
+    "prioridade": "Media",
+    "status": {
+      "Concluida": {
+        "date": "2025-10-16"
+      }
+    }
+  },
+  {
+    "titulo": "Estudar para a prova de Eletromagnetismo",
+    "descricao": "Revisar os capítulos sobre circuitos RLC e a Lei de Faraday.",
+    "categoria": "Universidade",
+    "data": "2025-10-28",
+    "prioridade": "Alta",
+    "status": "Pendente"
+  }
+]
