@@ -90,3 +90,22 @@ impl TaskManager {
     }
 }
 
+mod tests {
+    use chrono::Utc;
+
+    use super::*;
+    #[test]
+    fn  test_concluir_tarefa() {
+        let mut manager = TaskManager::new();
+        manager.tarefas.push(Tarefa::new(
+            "titulo".to_string(),
+            "descricao".to_string(),
+            "categoria ".to_string(),
+            Utc::now().date_naive(),
+            Prioridade::Baixa
+        ));
+        //assert_eq!(manager.tarefas[0].status, Status::Pendente);
+        //assert_eq!(manager.tarefas[0].status, Status::Concluida { date: Utc::now().date_naive() });
+        manager.listar_tarefas();    
+    }
+}
